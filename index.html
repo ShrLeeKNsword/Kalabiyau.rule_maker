@@ -24,45 +24,95 @@
 
 		<div id="vm"
 			style="max-width: 1200px;margin: 0 auto; text-align: center;box-shadow: 0px 0px -50x 30px gray;background-color: aliceblue;">
+			<br>
 			<h1>卡拉比丘随机规则生成器</h1>
+			<h5><br>声明：一个地图有几十份规则，我一局随机抽一份，我不能保障都平衡。不喜欢这样的现在退出来得及。</h5>
+			<h5>卡拉比丘有发言字数限制，请不要一次发送一大堆！</h5>
 
+			
+			
+			<el-card class="box-card">
+			<div>
+				<h4>点击下面的按钮就可以选择或取消选择，全部不选默认全选</h4>
+				<template>
+					<el-checkbox-group v-model="modeCheckList">
+						<el-checkbox-button label="躲猫猫"></el-checkbox-button>
+						<el-checkbox-button label="刀战" disabled></el-checkbox-button>
+						<el-checkbox-button label="伪灾变" disabled></el-checkbox-button>
+						<el-checkbox-button label="爆破" disabled></el-checkbox-button>
+						<el-checkbox-button label="逃杀" disabled></el-checkbox-button>
+						<el-checkbox-button label="伪生化" disabled></el-checkbox-button>
+						<el-checkbox-button label="尽情期待" disabled></el-checkbox-button>
+					</el-checkbox-group>
+
+					<br>
+
+					<el-checkbox-group v-model="mapCheckList">
+						<el-checkbox-button label="88区"></el-checkbox-button>
+						<el-checkbox-button label="欧拉港口"></el-checkbox-button>
+						<el-checkbox-button label="404基地"></el-checkbox-button>
+						<el-checkbox-button label="风曳镇"></el-checkbox-button>
+						<el-checkbox-button label="莱特园区" disabled></el-checkbox-button>
+						<el-checkbox-button label="莱特园区2号" disabled></el-checkbox-button>
+					</el-checkbox-group>
+				</template>
+				<h4>已经选择好了？直接 <el-button> 随机开抽 </el-button> ！</h4>
+				
+			</div>
+			</el-card>
+
+
+
+			<br>
 			<el-card class="box-card">
 				<div slot="header" class="clearfix">
-					<h2><span>游戏模式</span></h2>
-					<h4>不知道选什么模式？直接 <el-button> 随机开抽 </el-button> ！</h4>
+					<h2><span>游戏模式&通用规则</span></h2>
 				</div>
 				<div class="text item">
 					<el-collapse v-model="guizeZhedie" accordion>
 						<el-collapse-item title="躲猫猫模式" name="1">
-							<div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
-							<div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
+							<div style="text-align: left;">
+								<strong>通用规则</strong>
+								<ul style="list-style-type:number">
+									<li>
+										匪捉警躲，双方禁技能，匪只能副武器禁止安包，警只能投掷物，禁熊妹。
+									</li>
+									<li>
+										如果熊妹选了别原地站着，触发被动就好。站原地弦化可以不触发被动的。
+									</li>
+									<li>
+										信小技能不许拆。
+									</li>
+									<li>
+										bug点位只要攻击方拿枪能打的死你，不用任何东西还能全身而退就随便用,各别地方会有单独限制；<br>
+										要是卡无敌了，还不出来or紫砂，算你们这回合输，攻击方可以安包然后直接获胜了。
+									</li>
+								</ul>
+							</div>
+							<div>
+								<strong> 贡献者： </strong> 狼魂，时暖，Shizukou和喵喵群的群友等一众好人
+							</div>
 						</el-collapse-item>
 						<el-collapse-item title="刀战模式" name="2">
-							<div>控制反馈：通过界面样式和交互动效让用户可以清晰的感知自己的操作；</div>
-							<div>页面反馈：操作后，通过页面元素的变化清晰地展现当前状态。</div>
+							<div>尽情期待</div>
 						</el-collapse-item>
 						<el-collapse-item title="伪灾变模式" name="3">
-							<div>简化流程：设计简洁直观的操作流程；</div>
-							<div>清晰明确：语言表达清晰且表意明确，让用户快速理解进而作出决策；</div>
-							<div>帮助用户识别：界面简单直白，让用户快速识别而非回忆，减少用户记忆负担。</div>
+							<div>尽情期待</div>
 						</el-collapse-item>
 						<el-collapse-item title="爆破模式" name="4">
-							<div>用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；</div>
-							<div>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</div>
+							<div>尽情期待</div>
 						</el-collapse-item>
 						<el-collapse-item title="逃杀模式" name="5">
-							<div>用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；</div>
-							<div>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</div>
+							<div>尽情期待</div>
 						</el-collapse-item>
 						<el-collapse-item title="伪生化模式" name="6">
-							<div>用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；</div>
-							<div>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</div>
+							<div>尽情期待</div>
 						</el-collapse-item>
 					</el-collapse>
 
 				</div>
 			</el-card>
-			
+
 			<br>
 
 
