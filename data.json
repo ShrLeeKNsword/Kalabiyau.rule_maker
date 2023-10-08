@@ -8,6 +8,7 @@
 	"modeCheckList": ["躲猫猫"],
 	"mapCheckList": ["88区"],
 	"presentMode": "加载中",
+	"presentMap": "加载中",
 	"presentruleA": "加载中",
 	"presentruleAttack": "加载中",
 	"presentruleDefend": "加载中",
