@@ -5,6 +5,13 @@ var data = $.parseJSON($.ajax({
 }).responseText);
 console.log(data);
 
+var rules = $.parseJSON($.ajax({
+	url: "rules.json", //json文件位置，文件名
+	dataType: "json", //返回数据格式为json
+	async: false
+}).responseText);
+console.log(rules);
+
 function getTimeState() {
 	// 获取当前时间
 	var timeNow = new Date();
@@ -36,25 +43,53 @@ var vm = new Vue({
 	el: '#vm',
 	data: data,
 	methods: {
-		highlight_b() {
-			// id 在当前页面必须唯一的，否则会导致定位不到具体内容
-			const scrollDom = document.getElementById("note_1");
-			scrollDom.scrollIntoView();
-		},
-		highlight_c() {
-			// id 在当前页面必须唯一的，否则会导致定位不到具体内容
-			const scrollDom = document.getElementById("note_2");
-			scrollDom.scrollIntoView();
-		},
-		highlight_d() {
-			// id 在当前页面必须唯一的，否则会导致定位不到具体内容
-			const scrollDom = document.getElementById("note_3");
-			scrollDom.scrollIntoView();
-		},
+		randomrule() {
+			//检查是否有全空的情况
+			if (vm.modeCheckList.length == 0) {
+				vm.modeCheckList = ["躲猫猫"]
+				if (vm.mapCheckList.length == 0) {
+					vm.mapCheckList = ["88区"]
+					this.$message({
+						message: '模式和地图已经帮您全选！',
+						type: 'success',
+					});
+				} else {
+					this.$message({
+						message: '模式已经帮您全选！',
+						type: 'success'
 
+					});
+				}
+			} else {
+				if (vm.mapCheckList.length == 0) {
+					vm.mapCheckList = ["88区"]
+					this.$message({
+						message: '地图已经帮您全选！',
+						type: 'success'
+					});
 
-		handleSelect(key, keyPath) {
-			console.log(key, keyPath);
+				}
+			}
+
+			//开始幸运抽奖
+			vm.loading = true,
+			vm.randomNum = Math.floor(Math.random() * (rules.length)) + 1
+			this.$notify({
+				title: '成功',
+				message: '新的规则已经生成！ ID：'+ vm.randomNum,
+				type: 'success'
+			});
+			
+			vm.presentMode = rules[vm.randomNum]["mode"],
+			vm.presentruleA = rules[vm.randomNum]["ruleA"],
+			vm.presentruleAttack = rules[vm.randomNum]["rule_attack"],
+			vm.presentruleDefend = rules[vm.randomNum]["rule_defend"],
+			
+			vm.loading = false
+		},
+		
+		randomruleclear() {
+			vm.randomNum = 0
 		}
 	}
 });

@@ -8,7 +8,8 @@
 		<meta name="description" content="">
 		<title>卡拉比丘随机规则生成器</title>
 		<script src="script/vue.js" type="text/javascript" charset="UTF-8"></script>
-		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.2.1/jquery.min.js"></script>
+		<!--海外备用><script src="https://code.jquery.com/jquery-3.2.1.min.js"></script></!-->
 		<link href="https://cdn.bootcdn.net/ajax/libs/animate.css/4.1.1/animate.compat.css" rel="stylesheet">
 		<link href="css/index.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://npm.elemecdn.com/element-ui/lib/theme-chalk/index.css">
@@ -29,36 +30,61 @@
 			<h5><br>声明：一个地图有几十份规则，我一局随机抽一份，我不能保障都平衡。不喜欢这样的现在退出来得及。</h5>
 			<h5>卡拉比丘有发言字数限制，请不要一次发送一大堆！</h5>
 
-			
-			
-			<el-card class="box-card">
-			<div>
-				<h4>点击下面的按钮就可以选择或取消选择，全部不选默认全选</h4>
-				<template>
-					<el-checkbox-group v-model="modeCheckList">
-						<el-checkbox-button label="躲猫猫"></el-checkbox-button>
-						<el-checkbox-button label="刀战" disabled></el-checkbox-button>
-						<el-checkbox-button label="伪灾变" disabled></el-checkbox-button>
-						<el-checkbox-button label="爆破" disabled></el-checkbox-button>
-						<el-checkbox-button label="逃杀" disabled></el-checkbox-button>
-						<el-checkbox-button label="伪生化" disabled></el-checkbox-button>
-						<el-checkbox-button label="尽情期待" disabled></el-checkbox-button>
-					</el-checkbox-group>
+
+
+			<el-card class="box-card" v-loading="loading">
+				<div v-if="randomNum==0">
+					<h4>点击下面的按钮就可以选择或取消选择，全部不选会在抽规则时变成全选</h4>
+					<template>
+						<el-checkbox-group v-model="modeCheckList">
+							<el-checkbox-button label="躲猫猫"></el-checkbox-button>
+							<el-checkbox-button disabled label="刀战"></el-checkbox-button>
+							<el-checkbox-button disabled label="伪灾变"></el-checkbox-button>
+							<el-checkbox-button disabled label="爆破"></el-checkbox-button>
+							<el-checkbox-button disabled label="逃杀"></el-checkbox-button>
+							<el-checkbox-button disabled label="伪生化"></el-checkbox-button>
+							<el-checkbox-button disabled label="尽情期待"></el-checkbox-button>
+						</el-checkbox-group>
+
+						<br>
+
+						<el-checkbox-group v-model="mapCheckList">
+							<el-checkbox-button label="88区"></el-checkbox-button>
+							<el-checkbox-button disabled label="欧拉港口"></el-checkbox-button>
+							<el-checkbox-button disabled label="404基地"></el-checkbox-button>
+							<el-checkbox-button disabled label="风曳镇"></el-checkbox-button>
+							<el-checkbox-button disabled label="莱特园区"></el-checkbox-button>
+							<el-checkbox-button disabled label="莱特园区2号"></el-checkbox-button>
+						</el-checkbox-group>
+					</template>
 
 					<br>
+					<el-switch v-model="fuckingRule" disabled>
+					</el-switch>
+					允许变态规则
 
-					<el-checkbox-group v-model="mapCheckList">
-						<el-checkbox-button label="88区"></el-checkbox-button>
-						<el-checkbox-button label="欧拉港口"></el-checkbox-button>
-						<el-checkbox-button label="404基地"></el-checkbox-button>
-						<el-checkbox-button label="风曳镇"></el-checkbox-button>
-						<el-checkbox-button label="莱特园区" disabled></el-checkbox-button>
-						<el-checkbox-button label="莱特园区2号" disabled></el-checkbox-button>
-					</el-checkbox-group>
-				</template>
-				<h4>已经选择好了？直接 <el-button> 随机开抽 </el-button> ！</h4>
-				
-			</div>
+					<h4>已经选择好了？直接 <el-button @click="randomrule"> 随机开抽 </el-button> ！</h4>
+
+				</div>
+
+				<div v-if="randomNum!=0">
+					<h2>当前模式：{{presentMode}}</h2>
+					<h4>选人加点规则</h4>
+					{{presentruleA}}
+					<h4><span style="background-color: darkred;color: white;">-&nbsp剪刀手（进攻方）规则&nbsp-</span></h4>
+					{{presentruleAttack}}
+					<h4><span
+							style="background-color: dodgerblue;color: white;">-&nbsp&nbsp&nbsp欧泊（防守方）规则&nbsp&nbsp&nbsp-</span>
+					</h4>
+					{{presentruleDefend}}
+					<br>
+
+					<h4></h4>
+					<el-divider></el-divider>
+					<el-button @click="randomruleclear"> 返回上一页面 </el-button>
+
+				</div>
+
 			</el-card>
 
 

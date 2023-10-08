@@ -2,8 +2,15 @@
 	"ver_num": "0.0.0",
 	"index_value": 0,
 	"guizeZhedie": "1",
+	"fuckingRule": false,
+	"randomNum": 0,
+	"loading": false,
 	"modeCheckList": ["躲猫猫"],
-	"mapCheckList": ["88区","欧拉港口","404基地","风曳镇"],
+	"mapCheckList": ["88区"],
+	"presentMode": "加载中",
+	"presentruleA": "加载中",
+	"presentruleAttack": "加载中",
+	"presentruleDefend": "加载中",
 	"newsTableData": [{
 		"date": "2023-10-08",
 		"guide": "网站开始施工"
