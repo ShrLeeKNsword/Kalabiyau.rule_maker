@@ -69,12 +69,12 @@
 
 				<div v-if="randomNum!=0">
 					<h2>当前模式：{{presentMode}}</h2>
-					<h4>选人加点规则</h4>
+					<h4 style="user-select: none;">选人加点规则</h4>
 					{{presentruleA}}
-					<h4><span style="background-color: darkred;color: white;">-&nbsp剪刀手（进攻方）规则&nbsp-</span></h4>
+					<h4><span style="background-color: darkred;color: white;user-select: none;">-&nbsp剪刀手（进攻方）规则&nbsp-</span></h4>
 					{{presentruleAttack}}
 					<h4><span
-							style="background-color: dodgerblue;color: white;">-&nbsp&nbsp&nbsp欧泊（防守方）规则&nbsp&nbsp&nbsp-</span>
+							style="background-color: dodgerblue;color: white;user-select: none;">-&nbsp&nbsp&nbsp欧泊（防守方）规则&nbsp&nbsp&nbsp-</span>
 					</h4>
 					{{presentruleDefend}}
 					<br>
