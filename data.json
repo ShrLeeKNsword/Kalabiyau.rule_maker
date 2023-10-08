@@ -3,7 +3,7 @@
 	"index_value": 0,
 	"guizeZhedie": "1",
 	"fuckingRule": false,
-	"randomNum": 0,
+	"randomNum": null,
 	"loading": false,
 	"modeCheckList": ["躲猫猫"],
 	"mapCheckList": ["88区"],

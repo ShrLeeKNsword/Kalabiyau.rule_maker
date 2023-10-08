@@ -33,7 +33,7 @@
 
 
 			<el-card class="box-card" v-loading="loading">
-				<div v-if="randomNum==0">
+				<div v-if="randomNum==null">
 					<h4>点击下面的按钮就可以选择或取消选择，全部不选会在抽规则时变成全选</h4>
 					<template>
 						<el-checkbox-group v-model="modeCheckList">
@@ -67,7 +67,7 @@
 
 				</div>
 
-				<div v-if="randomNum!=0">
+				<div v-if="randomNum!=null">
 					<h2>当前模式：{{presentMode}}</h2>
 					<h4 style="user-select: none;">选人加点规则</h4>
 					{{presentruleA}}

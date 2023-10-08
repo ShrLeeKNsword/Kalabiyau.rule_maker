@@ -79,8 +79,10 @@ var vm = new Vue({
 				message: '新的规则已经生成！ ID：'+ vm.randomNum,
 				type: 'success'
 			});
+			vm.randomNum = vm.randomNum - 1,
 			
 			vm.presentMode = rules[vm.randomNum]["mode"],
+			vm.presentMap = rules[vm.randomNum]["map"],
 			vm.presentruleA = rules[vm.randomNum]["ruleA"],
 			vm.presentruleAttack = rules[vm.randomNum]["rule_attack"],
 			vm.presentruleDefend = rules[vm.randomNum]["rule_defend"],
@@ -89,7 +91,7 @@ var vm = new Vue({
 		},
 		
 		randomruleclear() {
-			vm.randomNum = 0
+			vm.randomNum = null
 		}
 	}
 });
