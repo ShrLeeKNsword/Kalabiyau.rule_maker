@@ -3,6 +3,7 @@
 	"activeIndex": "1",
 	"summary_background": "morning_background",
 	"index_value": 0,
+	"guizeZhedie": "1",
 	"top_img_list": [{
 			"id": 1,
 			"idView": "img/top_1.png"
@@ -216,17 +217,8 @@
 	],
 	
 	"newsTableData": [{
-		"date": "2022-05-06",
-		"guide": "网站公告界面施工"
-	}, {
-		"date": "2022-05-06",
-		"guide": "网站主界面完成"
-	}, {
-		"date": "2022-05-14",
-		"guide": "网站维护改造完成"
-	}, {
-		"date": "2022-05-20",
-		"guide": "网站维护改造完成"
+		"date": "2022-10-08",
+		"guide": "网站开始施工"
 	}],
 		
 	"discribe_scr": "img/discribe.png",
