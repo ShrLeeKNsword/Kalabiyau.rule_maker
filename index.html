@@ -29,6 +29,7 @@
 			<h1>卡拉比丘随机规则生成器</h1>
 			<h5><br>声明：一个地图有几十份规则，我一局随机抽一份，我不能保障都平衡。不喜欢这样的现在退出来得及。</h5>
 			<h5>卡拉比丘有发言字数限制，请不要一次发送一大堆！</h5>
+			<h5>躲猫猫交流群：435822764</h5>
 
 
 
@@ -39,6 +40,7 @@
 						<el-checkbox-group v-model="modeCheckList">
 							<el-checkbox-button label="躲猫猫"></el-checkbox-button>
 							<el-checkbox-button disabled label="刀战"></el-checkbox-button>
+							<el-checkbox-button disabled label="熟人"></el-checkbox-button>
 							<el-checkbox-button disabled label="伪灾变"></el-checkbox-button>
 							<el-checkbox-button disabled label="爆破"></el-checkbox-button>
 							<el-checkbox-button disabled label="逃杀"></el-checkbox-button>
@@ -50,9 +52,9 @@
 
 						<el-checkbox-group v-model="mapCheckList">
 							<el-checkbox-button label="88区"></el-checkbox-button>
-							<el-checkbox-button disabled label="欧拉港口"></el-checkbox-button>
-							<el-checkbox-button disabled label="404基地"></el-checkbox-button>
-							<el-checkbox-button disabled label="风曳镇"></el-checkbox-button>
+							<el-checkbox-button label="欧拉港口"></el-checkbox-button>
+							<el-checkbox-button label="404基地"></el-checkbox-button>
+							<el-checkbox-button label="风曳镇"></el-checkbox-button>
 							<el-checkbox-button disabled label="莱特园区"></el-checkbox-button>
 							<el-checkbox-button disabled label="莱特园区2号"></el-checkbox-button>
 						</el-checkbox-group>
@@ -61,7 +63,7 @@
 					<br>
 					<el-switch v-model="fuckingRule" disabled>
 					</el-switch>
-					允许变态规则
+					允许高(超)强(变)度(态)规则
 
 					<h4>已经选择好了？直接 <el-button @click="randomrule"> 随机开抽 </el-button> ！</h4>
 
@@ -71,7 +73,7 @@
 					<h2>{{presentMap}} - {{presentMode}}</h2>
 					<h4 style="user-select: none;">选人加点规则</h4>
 					{{presentruleA}}
-					<h4><span style="background-color: darkred;color: white;user-select: none;">-&nbsp剪刀手（进攻方）规则&nbsp-</span></h4>
+					<h4><span style="background-color: darkred;color: white;user-select: none;">-&nbsp剪刀手&nbsp（进攻方）规则&nbsp-</span></h4>
 					{{presentruleAttack}}
 					<h4><span
 							style="background-color: dodgerblue;color: white;user-select: none;">-&nbsp&nbsp&nbsp欧泊（防守方）规则&nbsp&nbsp&nbsp-</span>
@@ -81,6 +83,7 @@
 
 					<h4></h4>
 					<el-divider></el-divider>
+					<h5>规则统一识别码：{{presentruleCode}}</h5>
 					<el-button @click="randomruleclear"> 返回上一页面 </el-button>
 
 				</div>
@@ -104,7 +107,7 @@
 										匪捉警躲，双方禁技能，匪只能副武器禁止安包，警只能投掷物，禁熊妹。
 									</li>
 									<li>
-										如果熊妹选了别原地站着，触发被动就好。站原地弦化可以不触发被动的。
+										如果熊妹选了别原地站着（会触发隐身被动被动）就好。站原地弦化可以不触发被动的。
 									</li>
 									<li>
 										信小技能不许拆。

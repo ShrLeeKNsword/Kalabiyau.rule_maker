@@ -5,8 +5,9 @@
 	"fuckingRule": false,
 	"randomNum": null,
 	"loading": false,
+	"presentruleCode": "",
 	"modeCheckList": ["躲猫猫"],
-	"mapCheckList": ["88区"],
+	"mapCheckList": ["88区","欧拉港口","404基地","风曳镇"],
 	"presentMode": "加载中",
 	"presentMap": "加载中",
 	"presentruleA": "加载中",
@@ -15,6 +16,9 @@
 	"newsTableData": [{
 		"date": "2023-10-08",
 		"guide": "网站开始施工"
+	},{
+		"date": "2023-10-09",
+		"guide": "躲猫猫规则已更新"
 	}],
 	"centerDialogVisible": false
 }

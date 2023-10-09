@@ -48,7 +48,7 @@ var vm = new Vue({
 			if (vm.modeCheckList.length == 0) {
 				vm.modeCheckList = ["躲猫猫"]
 				if (vm.mapCheckList.length == 0) {
-					vm.mapCheckList = ["88区"]
+					vm.mapCheckList = ["88区", "欧拉港口", "404基地", "风曳镇"]
 					this.$message({
 						message: '模式和地图已经帮您全选！',
 						type: 'success',
@@ -62,34 +62,61 @@ var vm = new Vue({
 				}
 			} else {
 				if (vm.mapCheckList.length == 0) {
-					vm.mapCheckList = ["88区"]
+					vm.mapCheckList = ["88区", "欧拉港口", "404基地", "风曳镇"]
 					this.$message({
 						message: '地图已经帮您全选！',
 						type: 'success'
 					});
 
-				}
-			}
+				};
+			};
 
 			//开始幸运抽奖
-			vm.loading = true,
-			vm.randomNum = Math.floor(Math.random() * (rules.length)) + 1
+			vm.loading = true;
+			vm.randomNum = Math.floor(Math.random() * (rules.length));
+			vm.presentMap = rules[vm.randomNum]["map"];
+
+			while (!vm.mapCheckList.some(item => item === vm.presentMap)) {
+				setTimeout(1000)
+				vm.randomNum = Math.floor(Math.random() * (rules.length));
+
+				vm.randomNum = vm.randomNum;
+				vm.presentMode = rules[vm.randomNum]["mode"];
+				vm.presentMap = rules[vm.randomNum]["map"];
+
+			}
+			/*
+			if (vm.mapCheckList.hasOwnProperty(vm.presentMap)) {
+				this.$notify({
+					title: '成功',
+					message: '新的规则已经生成！ ID：' + (vm.randomNum + 1),
+					type: 'success'
+				});
+			} else {
+				this.$notify({
+					title: '错误',
+					message: '新的规则不符合条件！ ID：' + (vm.randomNum + 1),
+					type: 'error'
+				});
+			};
+			*/
+
 			this.$notify({
 				title: '成功',
-				message: '新的规则已经生成！ ID：'+ vm.randomNum,
+				message: '新的规则已经生成！ID：' + (vm.randomNum + 1),
 				type: 'success'
-			});
-			vm.randomNum = vm.randomNum - 1,
-			
-			vm.presentMode = rules[vm.randomNum]["mode"],
-			vm.presentMap = rules[vm.randomNum]["map"],
-			vm.presentruleA = rules[vm.randomNum]["ruleA"],
-			vm.presentruleAttack = rules[vm.randomNum]["rule_attack"],
-			vm.presentruleDefend = rules[vm.randomNum]["rule_defend"],
-			
+			});			
+
+
+			vm.presentruleA = rules[vm.randomNum]["ruleA"];
+			vm.presentruleA = rules[vm.randomNum]["ruleA"];
+			vm.presentruleAttack = rules[vm.randomNum]["rule_attack"];
+			vm.presentruleDefend = rules[vm.randomNum]["rule_defend"];
+			vm.presentruleCode = rules[vm.randomNum]["code"];
+
 			vm.loading = false
 		},
-		
+
 		randomruleclear() {
 			vm.randomNum = null
 		}
