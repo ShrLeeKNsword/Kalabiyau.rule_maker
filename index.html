@@ -39,8 +39,8 @@
 					<template>
 						<el-checkbox-group v-model="modeCheckList">
 							<el-checkbox-button label="躲猫猫"></el-checkbox-button>
+							<el-checkbox-button label="熟人烧烤"></el-checkbox-button>
 							<el-checkbox-button disabled label="刀战"></el-checkbox-button>
-							<el-checkbox-button disabled label="熟人"></el-checkbox-button>
 							<el-checkbox-button disabled label="伪灾变"></el-checkbox-button>
 							<el-checkbox-button disabled label="爆破"></el-checkbox-button>
 							<el-checkbox-button disabled label="逃杀"></el-checkbox-button>
@@ -73,7 +73,9 @@
 					<h2>{{presentMap}} - {{presentMode}}</h2>
 					<h4 style="user-select: none;">选人加点规则</h4>
 					{{presentruleA}}
-					<h4><span style="background-color: darkred;color: white;user-select: none;">-&nbsp剪刀手&nbsp（进攻方）规则&nbsp-</span></h4>
+					<h4><span
+							style="background-color: darkred;color: white;user-select: none;">-&nbsp剪刀手&nbsp（进攻方）规则&nbsp-</span>
+					</h4>
 					{{presentruleAttack}}
 					<h4><span
 							style="background-color: dodgerblue;color: white;user-select: none;">-&nbsp&nbsp&nbsp欧泊（防守方）规则&nbsp&nbsp&nbsp-</span>
@@ -83,7 +85,9 @@
 
 					<h4></h4>
 					<el-divider></el-divider>
-					<h5>规则统一识别码：{{presentruleCode}}</h5>
+					<h5>
+						规则统一识别码：{{presentruleCode}}
+					</h5>
 					<el-button @click="randomruleclear"> 返回上一页面 </el-button>
 
 				</div>
@@ -114,7 +118,36 @@
 									</li>
 									<li>
 										bug点位只要攻击方拿枪能打的死你，不用任何东西还能全身而退就随便用,各别地方会有单独限制；<br>
-										要是卡无敌了，还不出来or紫砂，算你们这回合输，攻击方可以安包然后直接获胜了。
+										要是卡无敌了，还不出来or紫砂，算你们这回合输，攻击方可以安包然后直接获胜了。<br>
+										<ul style="list-style-type: disc;">
+											<li>
+												<span style="background-color: yellow;">通用：</span>禁止卡模型错位的无限飘飞
+											</li>
+											<li>
+												<span style="background-color: yellow;">88区：</span>暂无
+											</li>
+											<li>
+												<span style="background-color: yellow;">港口：</span>
+												<ul style="list-style-type:number">
+													<li>
+														卷帘门进去后只能投掷物，若规则没给，投掷物都禁止使用
+													</li>
+													<li>
+														匪家右下角禁止出图到集装箱下面
+													</li>
+													<li>
+														B点二楼天花板卡飘飞，卡飘飞了要强制漏模型出来给人打
+													</li>
+												</ul>
+											</li>
+											<li>
+												<span style="background-color: yellow;">风曳镇：</span>点左边上楼穿墙禁止使用
+											</li>
+											<li>
+												<span style="background-color: yellow;">404基地：</span>暂无
+											</li>
+										</ul>
+
 									</li>
 								</ul>
 							</div>

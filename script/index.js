@@ -46,7 +46,7 @@ var vm = new Vue({
 		randomrule() {
 			//检查是否有全空的情况
 			if (vm.modeCheckList.length == 0) {
-				vm.modeCheckList = ["躲猫猫"]
+				vm.modeCheckList = ["躲猫猫","熟人烧烤"]
 				if (vm.mapCheckList.length == 0) {
 					vm.mapCheckList = ["88区", "欧拉港口", "404基地", "风曳镇"]
 					this.$message({
@@ -75,8 +75,9 @@ var vm = new Vue({
 			vm.loading = true;
 			vm.randomNum = Math.floor(Math.random() * (rules.length));
 			vm.presentMap = rules[vm.randomNum]["map"];
+			vm.presentMode = rules[vm.randomNum]["mode"];
 
-			while (!vm.mapCheckList.some(item => item === vm.presentMap)) {
+			while (!vm.modeCheckList.some(item => item === vm.presentMode) || !vm.mapCheckList.some(item => item === vm.presentMap)) {
 				setTimeout(1000)
 				vm.randomNum = Math.floor(Math.random() * (rules.length));
 
