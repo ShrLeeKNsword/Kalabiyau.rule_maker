@@ -6,7 +6,7 @@
 	"randomNum": null,
 	"loading": false,
 	"presentruleCode": "",
-	"modeCheckList": ["躲猫猫","熟人烧烤"],
+	"modeCheckList": ["躲猫猫","熟人烧烤","刀战"],
 	"mapCheckList": ["88区","欧拉港口","404基地","风曳镇"],
 	"presentMode": "加载中",
 	"presentMap": "加载中",
@@ -19,6 +19,9 @@
 	},{
 		"date": "2023-10-09",
 		"guide": "躲猫猫规则已更新"
+	},{
+		"date": "2023-10-15",
+		"guide": "熟人烧烤和刀战已更新"
 	}],
 	"centerDialogVisible": false
 }
