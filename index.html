@@ -2,11 +2,11 @@
 <html lang='zh-CN'>
 	<head>
 		<meta charset="utf-8">
-		<meta name="keywords" content="卡拉比丘,番石榴网络科技工作室">
+		<meta name="keywords" content="卡拉彼丘,番石榴网络科技工作室">
 		<meta name="copyright" content="本网站版权归海口龙华番石榴网络科技工作室所有！">
 		<meta http-equiv="windows-target" content="_top">
 		<meta name="description" content="">
-		<title>卡拉比丘随机规则生成器</title>
+		<title>卡拉彼丘随机规则生成器</title>
 		<script src="script/vue.js" type="text/javascript" charset="UTF-8"></script>
 		<script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.2.1/jquery.min.js"></script>
 		<!--海外备用><script src="https://code.jquery.com/jquery-3.2.1.min.js"></script></!-->
@@ -26,9 +26,9 @@
 		<div id="vm"
 			style="max-width: 1200px;margin: 0 auto; text-align: center;box-shadow: 0px 0px -50x 30px gray;background-color: aliceblue;">
 			<br>
-			<h1>卡拉比丘随机规则生成器</h1>
+			<h1>卡拉彼丘随机规则生成器</h1>
 			<h5><br>声明：一个地图有几十份规则，我一局随机抽一份，我不能保障都平衡。不喜欢这样的现在退出来得及。</h5>
-			<h5>卡拉比丘有发言字数限制，请不要一次发送一大堆！</h5>
+			<h5>卡拉彼丘有发言字数限制，请不要一次发送一大堆！</h5>
 			<h5>躲猫猫交流群：435822764</h5>
 
 
@@ -55,8 +55,23 @@
 							<el-checkbox-button label="欧拉港口"></el-checkbox-button>
 							<el-checkbox-button label="404基地"></el-checkbox-button>
 							<el-checkbox-button label="风曳镇"></el-checkbox-button>
+							<el-checkbox-button label="空间实验站"></el-checkbox-button>
+							<el-checkbox-button label="柯西街区"></el-checkbox-button>
+						</el-checkbox-group>
+						<el-checkbox-group v-model="mapCheckList">
 							<el-checkbox-button disabled label="莱特园区"></el-checkbox-button>
-							<el-checkbox-button disabled label="莱特园区2号"></el-checkbox-button>
+							<el-checkbox-button disabled label="2号仓库"></el-checkbox-button>
+							<el-checkbox-button disabled label="花明弓道馆"></el-checkbox-button>
+							<el-checkbox-button disabled label="鹿鹿潮玩区"></el-checkbox-button>
+							<el-checkbox-button disabled label="水下发电厂"></el-checkbox-button>
+							<el-checkbox-button disabled label="码头小镇"></el-checkbox-button>
+						</el-checkbox-group>
+						<el-checkbox-group v-model="mapCheckList">
+							<el-checkbox-button disabled label="离境区"></el-checkbox-button>
+							<el-checkbox-button disabled label="亚克萨工厂"></el-checkbox-button>
+						</el-checkbox-group>
+						<el-checkbox-group v-model="mapCheckList">
+							<el-checkbox-button disabled label="狄拉克矿区"></el-checkbox-button>
 						</el-checkbox-group>
 					</template>
 
@@ -225,7 +240,7 @@
 
 				<div class="text item">
 					<h4>
-						本网站制作组不是卡拉比丘官方，与卡拉比丘官方无关
+						本网站制作组不是卡拉彼丘官方，与卡拉彼丘官方无关
 					</h4>
 					<h4>
 						本网站非盈利，如果你通过付费的方法获得了此网站，请尽情对商家举报维权
