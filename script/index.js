@@ -46,9 +46,9 @@ var vm = new Vue({
 		randomrule() {
 			//检查是否有全空的情况
 			if (vm.modeCheckList.length == 0) {
-				vm.modeCheckList = ["躲猫猫", "熟人烧烤", "刀战"]
+				vm.modeCheckList = ["躲猫猫", "熟人烧烤", "特别"]
 				if (vm.mapCheckList.length == 0) {
-					vm.mapCheckList = ["88区", "欧拉港口", "404基地", "风曳镇"]
+					vm.mapCheckList = ["88区", "欧拉港口", "404基地", "风曳镇", "空间实验站"]
 					this.$message({
 						message: '模式和地图已经帮您全选！',
 						type: 'success',
