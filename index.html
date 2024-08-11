@@ -27,9 +27,12 @@
 			style="max-width: 1200px;margin: 0 auto; text-align: center;box-shadow: 0px 0px -50x 30px gray;background-color: aliceblue;">
 			<br>
 			<h1>卡拉彼丘随机规则生成器</h1>
-			<h5><br>声明：一个地图有几十份规则，我一局随机抽一份，我不能保障都平衡。不喜欢这样的现在退出来得及。</h5>
+			<h5><br>声明：一个地图有几十份规则，一局随机抽一份，不能保障都平衡。不喜欢这样的现在退出来得及。</h5>
 			<h5>卡拉彼丘有发言字数限制，请不要一次发送一大堆！</h5>
 			<h5>躲猫猫交流群：435822764</h5>
+			<a href="https://github.com/ShrLeeKNsword/Kalabiyau.rule_maker">
+				<h5>Github项目</h5>
+			</a>
 
 
 
@@ -40,11 +43,11 @@
 						<el-checkbox-group v-model="modeCheckList">
 							<el-checkbox-button label="躲猫猫"></el-checkbox-button>
 							<el-checkbox-button label="熟人烧烤"></el-checkbox-button>
-							<el-checkbox-button label="刀战"></el-checkbox-button>
 							<el-checkbox-button disabled label="伪灾变"></el-checkbox-button>
 							<el-checkbox-button disabled label="爆破"></el-checkbox-button>
 							<el-checkbox-button disabled label="逃杀"></el-checkbox-button>
 							<el-checkbox-button disabled label="伪生化"></el-checkbox-button>
+							<el-checkbox-button label="特别"></el-checkbox-button>
 							<el-checkbox-button disabled label="尽情期待"></el-checkbox-button>
 						</el-checkbox-group>
 
@@ -86,6 +89,7 @@
 
 				<div v-if="randomNum!=null">
 					<h2>{{presentMap}} - {{presentMode}}</h2>
+					<!--
 					<h4 style="user-select: none;">选人加点规则</h4>
 					{{presentruleA}}
 					<h4><span
@@ -99,9 +103,15 @@
 					<br>
 
 					<h4></h4>
+					-->
+					<h4 style="user-select: none;">队伍A：{{presentAteamNumber}}人 - 队伍B：{{presentBteamNumber}}人</h4>
+					<h4 style="user-select: none;">规则</h4>
+					{{presentRule}}
+					<br>
+					
 					<el-divider></el-divider>
 					<h5>
-						规则统一识别码：{{presentruleCode}}
+						规则统一识别码：{{presentruleCode}} - 规则码：{{presentgameCode}}
 					</h5>
 					<el-button @click="randomruleclear"> 返回上一页面 </el-button>
 

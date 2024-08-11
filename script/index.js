@@ -46,7 +46,7 @@ var vm = new Vue({
 		randomrule() {
 			//检查是否有全空的情况
 			if (vm.modeCheckList.length == 0) {
-				vm.modeCheckList = ["躲猫猫","熟人烧烤","刀战"]
+				vm.modeCheckList = ["躲猫猫", "熟人烧烤", "刀战"]
 				if (vm.mapCheckList.length == 0) {
 					vm.mapCheckList = ["88区", "欧拉港口", "404基地", "风曳镇"]
 					this.$message({
@@ -77,13 +77,17 @@ var vm = new Vue({
 			vm.presentMap = rules[vm.randomNum]["map"];
 			vm.presentMode = rules[vm.randomNum]["mode"];
 
-			while (!vm.modeCheckList.some(item => item === vm.presentMode) || !vm.mapCheckList.some(item => item === vm.presentMap)) {
+			let i = 0;
+
+			while ((!vm.modeCheckList.some(item => item === vm.presentMode) || !vm.mapCheckList.some(item =>
+					item === vm.presentMap)) && i < 100) {
 				setTimeout(1000)
 				vm.randomNum = Math.floor(Math.random() * (rules.length));
 
 				vm.randomNum = vm.randomNum;
 				vm.presentMode = rules[vm.randomNum]["mode"];
 				vm.presentMap = rules[vm.randomNum]["map"];
+				i = i + 1;
 
 			}
 			/*
@@ -101,19 +105,31 @@ var vm = new Vue({
 				});
 			};
 			*/
+			if (i != 100) {
+				this.$notify({
+					title: '成功',
+					message: '新的规则已经生成！ID：' + (vm.randomNum + 1),
+					type: 'success'
+				});
+			} else {
+				this.$notify({
+					title: '失败',
+					message: '运气可能不太好？或者条件冲突？',
+					type: 'error'
+				});
+			}
+			i=0;
 
-			this.$notify({
-				title: '成功',
-				message: '新的规则已经生成！ID：' + (vm.randomNum + 1),
-				type: 'success'
-			});			
 
 
-			vm.presentruleA = rules[vm.randomNum]["ruleA"];
-			vm.presentruleA = rules[vm.randomNum]["ruleA"];
-			vm.presentruleAttack = rules[vm.randomNum]["rule_attack"];
-			vm.presentruleDefend = rules[vm.randomNum]["rule_defend"];
+			vm.presentRule = rules[vm.randomNum]["rule"];
+			vm.presentAteamNumber = rules[vm
+				.randomNum]["A_team_number"];
+			vm.presentBteamNumber = rules[vm.randomNum][
+				"B_team_number"
+			];
 			vm.presentruleCode = rules[vm.randomNum]["code"];
+			vm.presentgameCode = rules[vm.randomNum]["game_code"]
 
 			vm.loading = false
 		},
