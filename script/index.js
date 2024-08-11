@@ -62,7 +62,7 @@ var vm = new Vue({
 				}
 			} else {
 				if (vm.mapCheckList.length == 0) {
-					vm.mapCheckList = ["88区", "欧拉港口", "404基地", "风曳镇"]
+					vm.mapCheckList = ["88区", "欧拉港口", "404基地", "风曳镇", "空间实验站"]
 					this.$message({
 						message: '地图已经帮您全选！',
 						type: 'success'
